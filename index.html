@@ -1,1 +1,793 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f2027">
+
+<title>Exam Countdown - Batch C</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100svh;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.page {
+    width: min(100%, 820px);
+    margin: auto;
+    padding:
+        max(24px, env(safe-area-inset-top))
+        16px
+        max(28px, env(safe-area-inset-bottom));
+}
+
+/* HEADER */
+
+.hero {
+    text-align: center;
+    padding: 10px 0 20px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 999px;
+    background: rgba(255,255,255,.08);
+    font-size: .68rem;
+    letter-spacing: 1.8px;
+}
+
+h1 {
+    margin: 10px 0 3px;
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+}
+
+.subtitle {
+    margin: 0;
+    color: #cbd7db;
+    font-size: .85rem;
+}
+
+/* CARDS */
+
+.countdown-card,
+.schedule-section {
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.075);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.18);
+}
+
+.countdown-card {
+    padding: 22px 12px 18px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.eyebrow {
+    margin: 0 0 5px;
+    color: #b9cbd0;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+}
+
+.countdown-card h2 {
+    margin: 0;
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+}
+
+.event-date {
+    margin: 3px 0 16px;
+    color: #d4dfe2;
+    font-size: .78rem;
+}
+
+/* TIMER */
+
+.timer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+    max-width: 560px;
+    margin: auto;
+}
+
+.time-box {
+    min-width: 0;
+    padding: 12px 4px 10px;
+    border-radius: 13px;
+    background: rgba(255,255,255,.105);
+}
+
+.time-box span {
+    display: block;
+    font-size: clamp(1.35rem, 7vw, 2.25rem);
+    line-height: 1;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.time-box small {
+    display: block;
+    margin-top: 6px;
+    color: #cbd5d8;
+    font-size: .62rem;
+}
+
+/* SECTION */
+
+.schedule-section {
+    padding: 18px 14px;
+    margin-top: 18px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.time-pill {
+    white-space: nowrap;
+    padding: 6px 9px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.1);
+    color: #d6e0e3;
+    font-size: .62rem;
+}
+
+.venue {
+    color: #cbd7da;
+    font-size: .75rem;
+    margin: 8px 0 14px;
+}
+
+/* THEORY SCHEDULE */
+
+.schedule-list {
+    display: grid;
+    gap: 8px;
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 11px;
+    border-radius: 13px;
+    background: rgba(0,0,0,.13);
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 55px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.08);
+}
+
+.date strong {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.date span {
+    margin-top: 4px;
+    font-size: .57rem;
+    color: #c5d0d3;
+}
+
+.schedule-row h3 {
+    margin: 0;
+    font-size: .86rem;
+    line-height: 1.35;
+}
+
+.schedule-row p {
+    margin: 3px 0 0;
+    color: #aebfc3;
+    font-size: .65rem;
+}
+
+/* VIVA / OSPE TABLE */
+
+.ospe-grid {
+    overflow-x: auto;
+    border-radius: 12px;
+    background: rgba(0,0,0,.13);
+    -webkit-overflow-scrolling: touch;
+}
+
+.ospe-header,
+.ospe-row {
+    min-width: 560px;
+    display: grid;
+    grid-template-columns: 82px 1.55fr 1fr 1fr;
+    align-items: stretch;
+}
+
+.ospe-header {
+    background: rgba(255,255,255,.09);
+    font-size: .62rem;
+    font-weight: 600;
+}
+
+.ospe-header span,
+.ospe-row > * {
+    padding: 10px 7px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.ospe-row {
+    font-size: .76rem;
+}
+
+.ospe-row span {
+    color: #d1dcdf;
+}
+
+.ospe-row b {
+    font-size: .9rem;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    color: #94a5aa;
+    font-size: .65rem;
+    margin-top: 24px;
+}
+
+/* TABLET / DESKTOP */
+
+@media (min-width: 600px) {
+
+    .page {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .countdown-card {
+        padding: 28px 20px 22px;
+    }
+
+    .schedule-section {
+        padding: 22px;
+    }
+
+    .schedule-row {
+        grid-template-columns: 82px 1fr;
+        padding: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+    <!-- HEADER -->
+    <header class="hero">
+        <div class="badge">BATCH C</div>
+
+        <h1>Exam Countdown</h1>
+
+        <p class="subtitle">
+            Theory • Viva &amp; OSPE
+        </p>
+    </header>
+
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-card">
+
+        <p class="eyebrow">
+            NEXT EXAM
+        </p>
+
+        <h2 id="nextEvent">
+            Loading...
+        </h2>
+
+        <p id="nextDate" class="event-date"></p>
+
+        <div id="timer" class="timer">
+
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>Days</small>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>Hours</small>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>Min</small>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>Sec</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- THEORY EXAM -->
+    <section class="schedule-section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="eyebrow">
+                    SCHEDULE
+                </p>
+
+                <h2>
+                    Theory Exam
+                </h2>
+            </div>
+
+            <span class="time-pill">
+                10 AM – 1 PM
+            </span>
+
+        </div>
+
+
+        <div class="schedule-list">
+
+            <article class="schedule-row">
+
+                <div class="date">
+                    <strong>06</strong>
+                    <span>SEP 2026</span>
+                </div>
+
+                <div>
+                    <h3>Microbiology</h3>
+                    <p>Theory Exam</p>
+                </div>
+
+            </article>
+
+
+            <article class="schedule-row">
+
+                <div class="date">
+                    <strong>08</strong>
+                    <span>SEP 2026</span>
+                </div>
+
+                <div>
+                    <h3>Pathology</h3>
+                    <p>Theory Exam</p>
+                </div>
+
+            </article>
+
+
+            <article class="schedule-row">
+
+                <div class="date">
+                    <strong>10</strong>
+                    <span>SEP 2026</span>
+                </div>
+
+                <div>
+                    <h3>
+                        Community Medicine &amp; Public Health
+                    </h3>
+
+                    <p>Theory Exam</p>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- VIVA & OSPE -->
+    <section class="schedule-section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="eyebrow">
+                    PRACTICAL
+                </p>
+
+                <h2>
+                    Viva &amp; OSPE
+                </h2>
+            </div>
+
+            <span class="time-pill">
+                9 AM – 3 PM
+            </span>
+
+        </div>
+
+
+        <p class="venue">
+            Venue: Respective Department
+        </p>
+
+
+        <div class="ospe-grid">
+
+            <!-- HEADER -->
+
+            <div class="ospe-header">
+
+                <span>Date</span>
+
+                <span>
+                    Community Medicine
+                </span>
+
+                <span>
+                    Pathology
+                </span>
+
+                <span>
+                    Microbiology
+                </span>
+
+            </div>
+
+
+            <!-- 12 SEPTEMBER -->
+
+            <div class="ospe-row">
+
+                <span>
+                    12 Sep
+                </span>
+
+                <b>A</b>
+
+                <b>B</b>
+
+                <b>C</b>
+
+            </div>
+
+
+            <!-- 13 SEPTEMBER -->
+
+            <div class="ospe-row">
+
+                <span>
+                    13 Sep
+                </span>
+
+                <b>D</b>
+
+                <b>E</b>
+
+                <b>A</b>
+
+            </div>
+
+
+            <!-- 14 SEPTEMBER -->
+
+            <div class="ospe-row">
+
+                <span>
+                    14 Sep
+                </span>
+
+                <b>B</b>
+
+                <b>C</b>
+
+                <b>D</b>
+
+            </div>
+
+
+            <!-- 15 SEPTEMBER -->
+
+            <div class="ospe-row">
+
+                <span>
+                    15 Sep
+                </span>
+
+                <b>E</b>
+
+                <b>A</b>
+
+                <b>B</b>
+
+            </div>
+
+
+            <!-- 16 SEPTEMBER -->
+
+            <div class="ospe-row">
+
+                <span>
+                    16 Sep
+                </span>
+
+                <b>C</b>
+
+                <b>D</b>
+
+                <b>E</b>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        © 2026 BATCH C
+    </footer>
+
+</main>
+
+
+<script>
+
+/* ==========================================
+   EXAM SCHEDULE
+   ========================================== */
+
+const events = [
+
+    {
+        date: "2026-09-06T10:00:00",
+        title: "Microbiology",
+        type: "Theory Exam",
+        end: "2026-09-06T13:00:00"
+    },
+
+    {
+        date: "2026-09-08T10:00:00",
+        title: "Pathology",
+        type: "Theory Exam",
+        end: "2026-09-08T13:00:00"
+    },
+
+    {
+        date: "2026-09-10T10:00:00",
+        title: "Community Medicine & Public Health",
+        type: "Theory Exam",
+        end: "2026-09-10T13:00:00"
+    },
+
+    {
+        date: "2026-09-12T09:00:00",
+        title: "Viva & OSPE — Day A/B/C",
+        type: "Practical",
+        end: "2026-09-12T15:00:00"
+    },
+
+    {
+        date: "2026-09-13T09:00:00",
+        title: "Viva & OSPE — Day D/E/A",
+        type: "Practical",
+        end: "2026-09-13T15:00:00"
+    },
+
+    {
+        date: "2026-09-14T09:00:00",
+        title: "Viva & OSPE — Day B/C/D",
+        type: "Practical",
+        end: "2026-09-14T15:00:00"
+    },
+
+    {
+        date: "2026-09-15T09:00:00",
+        title: "Viva & OSPE — Day E/A/B",
+        type: "Practical",
+        end: "2026-09-15T15:00:00"
+    },
+
+    {
+        date: "2026-09-16T09:00:00",
+        title: "Viva & OSPE — Day C/D/E",
+        type: "Practical",
+        end: "2026-09-16T15:00:00"
+    }
+
+];
+
+
+/* ==========================================
+   FORMAT DATE
+   ========================================== */
+
+function formatDate(date) {
+
+    return date.toLocaleDateString(
+        "en-GB",
+        {
+            weekday: "long",
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* ==========================================
+   COUNTDOWN
+   ========================================== */
+
+function updateCountdown() {
+
+    const now = new Date();
+
+    const next = events.find(
+        event => new Date(event.date) > now
+    );
+
+
+    /* ALL EVENTS COMPLETED */
+
+    if (!next) {
+
+        document.getElementById("nextEvent").textContent =
+            "Exams completed";
+
+        document.getElementById("nextDate").textContent =
+            "Well done, Batch C!";
+
+        document.getElementById("timer").innerHTML =
+            `
+            <div class="time-box"
+                 style="grid-column:1/-1">
+
+                <span>✓</span>
+
+                <small>
+                    Completed
+                </small>
+
+            </div>
+            `;
+
+        return;
+    }
+
+
+    /* TARGET DATE */
+
+    const target = new Date(next.date);
+
+    const gap = target - now;
+
+
+    /* EVENT INFORMATION */
+
+    document.getElementById("nextEvent").textContent =
+        `${next.title} — ${next.type}`;
+
+
+    document.getElementById("nextDate").textContent =
+        `${formatDate(target)} • ${
+            target.toLocaleTimeString(
+                [],
+                {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                }
+            )
+        }`;
+
+
+    /* TIME CALCULATION */
+
+    const totalSeconds =
+        Math.max(
+            0,
+            Math.floor(gap / 1000)
+        );
+
+
+    const days =
+        Math.floor(
+            totalSeconds / 86400
+        );
+
+
+    const hours =
+        Math.floor(
+            (totalSeconds % 86400) / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    /* DISPLAY */
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+
+}
+
+
+/* ==========================================
+   START
+   ========================================== */
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+</script>
+
+</body>
+</html>
