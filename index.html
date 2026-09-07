@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0f2027">
 
-<title> 2nd Term Exam Countdown</title>
+<title></title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -29,99 +28,97 @@ body {
 }
 
 .page {
-    width: min(100%, 820px);
+    width: min(100%, 850px);
     margin: auto;
     padding:
-        max(24px, env(safe-area-inset-top))
-        16px
-        max(28px, env(safe-area-inset-bottom));
+        max(20px, env(safe-area-inset-top))
+        15px
+        max(30px, env(safe-area-inset-bottom));
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .hero {
     text-align: center;
-    padding: 10px 0 20px;
+    padding: 12px 0 20px;
 }
 
 .badge {
     display: inline-block;
-    padding: 5px 12px;
+    padding: 5px 13px;
+    border-radius: 50px;
     border: 1px solid rgba(255,255,255,.2);
-    border-radius: 999px;
     background: rgba(255,255,255,.08);
-    font-size: .68rem;
-    letter-spacing: 1.8px;
+    font-size: 11px;
+    letter-spacing: 2px;
 }
 
 h1 {
     margin: 10px 0 3px;
-    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
 }
 
 .subtitle {
     margin: 0;
     color: #cbd7db;
-    font-size: .85rem;
+    font-size: 13px;
 }
 
-/* CARDS */
+/* ================= COMMON CARD ================= */
 
-.countdown-card,
-.schedule-section {
+.card {
     border: 1px solid rgba(255,255,255,.12);
     background: rgba(255,255,255,.075);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 20px;
-    box-shadow: 0 12px 35px rgba(0,0,0,.18);
+    box-shadow: 0 12px 35px rgba(0,0,0,.2);
 }
 
+/* ================= COUNTDOWN ================= */
+
 .countdown-card {
-    padding: 22px 12px 18px;
+    padding: 22px 12px;
     text-align: center;
-    margin-bottom: 18px;
 }
 
 .eyebrow {
     margin: 0 0 5px;
     color: #b9cbd0;
-    font-size: .65rem;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 1.8px;
+    letter-spacing: 2px;
 }
 
 .countdown-card h2 {
     margin: 0;
-    font-size: clamp(1.1rem, 5vw, 1.5rem);
+    font-size: clamp(18px, 5vw, 24px);
+    line-height: 1.35;
 }
 
 .event-date {
-    margin: 3px 0 16px;
+    margin: 5px 0 17px;
     color: #d4dfe2;
-    font-size: .78rem;
+    font-size: 12px;
 }
-
-/* TIMER */
 
 .timer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 7px;
-    max-width: 560px;
+    max-width: 570px;
     margin: auto;
 }
 
 .time-box {
-    min-width: 0;
-    padding: 12px 4px 10px;
+    padding: 13px 4px 10px;
     border-radius: 13px;
-    background: rgba(255,255,255,.105);
+    background: rgba(255,255,255,.1);
 }
 
 .time-box span {
     display: block;
-    font-size: clamp(1.35rem, 7vw, 2.25rem);
+    font-size: clamp(22px, 8vw, 38px);
     line-height: 1;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
@@ -129,46 +126,46 @@ h1 {
 
 .time-box small {
     display: block;
-    margin-top: 6px;
+    margin-top: 7px;
     color: #cbd5d8;
-    font-size: .62rem;
+    font-size: 10px;
 }
 
-/* SECTION */
+/* ================= SECTION ================= */
 
-.schedule-section {
-    padding: 18px 14px;
+.section {
     margin-top: 18px;
+    padding: 19px 14px;
 }
 
-.section-heading {
+.section-title {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 10px;
 }
 
-.section-heading h2 {
+.section-title h2 {
     margin: 0;
-    font-size: 1.15rem;
+    font-size: 19px;
 }
 
 .time-pill {
     white-space: nowrap;
     padding: 6px 9px;
-    border-radius: 999px;
+    border-radius: 50px;
     background: rgba(255,255,255,.1);
     color: #d6e0e3;
-    font-size: .62rem;
+    font-size: 10px;
 }
 
 .venue {
+    margin: 7px 0 14px;
     color: #cbd7da;
-    font-size: .75rem;
-    margin: 8px 0 14px;
+    font-size: 11px;
 }
 
-/* THEORY SCHEDULE */
+/* ================= THEORY ================= */
 
 .schedule-list {
     display: grid;
@@ -177,7 +174,7 @@ h1 {
 
 .schedule-row {
     display: grid;
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: 70px 1fr;
     gap: 12px;
     align-items: center;
     padding: 11px;
@@ -186,39 +183,155 @@ h1 {
 }
 
 .date {
+    min-height: 55px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 55px;
     border-radius: 10px;
     background: rgba(255,255,255,.08);
 }
 
 .date strong {
-    font-size: 1.2rem;
+    font-size: 20px;
     line-height: 1;
 }
 
 .date span {
     margin-top: 4px;
-    font-size: .57rem;
     color: #c5d0d3;
+    font-size: 8px;
 }
 
 .schedule-row h3 {
     margin: 0;
-    font-size: .86rem;
+    font-size: 13px;
     line-height: 1.35;
 }
 
 .schedule-row p {
     margin: 3px 0 0;
     color: #aebfc3;
-    font-size: .65rem;
+    font-size: 10px;
 }
 
-/* VIVA / OSPE TABLE */
+/* ================= FIND MY VIVA ================= */
+
+.find-viva {
+    text-align: center;
+}
+
+.find-viva h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.find-viva-description {
+    margin: 5px 0 16px;
+    color: #c3d0d4;
+    font-size: 11px;
+}
+
+/* GROUP BUTTONS */
+
+.group-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+}
+
+.group-btn {
+    border: 1px solid rgba(255,255,255,.14);
+    outline: none;
+    cursor: pointer;
+    padding: 12px 5px;
+    border-radius: 12px;
+    color: #fff;
+    background: rgba(255,255,255,.09);
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    transition: .2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.group-btn:active {
+    transform: scale(.94);
+}
+
+.group-btn.selected {
+    background: rgba(255,255,255,.22);
+    border-color: rgba(255,255,255,.4);
+}
+
+/* ================= VIVA RESULT ================= */
+
+.viva-result {
+    display: none;
+    margin-top: 17px;
+    text-align: left;
+}
+
+.viva-result.show {
+    display: block;
+}
+
+.result-title {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.result-title h3 {
+    margin: 0;
+    font-size: 17px;
+}
+
+.result-title p {
+    margin: 3px 0 0;
+    color: #bfcdd1;
+    font-size: 10px;
+}
+
+.viva-item {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    gap: 11px;
+    align-items: center;
+    padding: 11px;
+    margin-bottom: 7px;
+    border-radius: 12px;
+    background: rgba(0,0,0,.14);
+}
+
+.viva-date {
+    text-align: center;
+    padding: 8px 4px;
+    border-radius: 9px;
+    background: rgba(255,255,255,.08);
+}
+
+.viva-date strong {
+    display: block;
+    font-size: 17px;
+}
+
+.viva-date span {
+    color: #c5d0d3;
+    font-size: 8px;
+}
+
+.viva-subject {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.viva-time {
+    margin-top: 3px;
+    color: #b9c8cc;
+    font-size: 9px;
+}
+
+/* ================= OSPE TABLE ================= */
 
 .ospe-grid {
     overflow-x: auto;
@@ -232,12 +345,11 @@ h1 {
     min-width: 560px;
     display: grid;
     grid-template-columns: 82px 1.55fr 1fr 1fr;
-    align-items: stretch;
 }
 
 .ospe-header {
     background: rgba(255,255,255,.09);
-    font-size: .62rem;
+    font-size: 9px;
     font-weight: 600;
 }
 
@@ -250,7 +362,7 @@ h1 {
 }
 
 .ospe-row {
-    font-size: .76rem;
+    font-size: 11px;
 }
 
 .ospe-row span {
@@ -258,19 +370,19 @@ h1 {
 }
 
 .ospe-row b {
-    font-size: .9rem;
+    font-size: 14px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer {
     text-align: center;
-    color: #94a5aa;
-    font-size: .65rem;
     margin-top: 24px;
+    color: #94a5aa;
+    font-size: 9px;
 }
 
-/* TABLET / DESKTOP */
+/* ================= LARGER SCREENS ================= */
 
 @media (min-width: 600px) {
 
@@ -279,12 +391,12 @@ footer {
         padding-right: 24px;
     }
 
-    .countdown-card {
-        padding: 28px 20px 22px;
+    .section {
+        padding: 22px;
     }
 
-    .schedule-section {
-        padding: 22px;
+    .countdown-card {
+        padding: 28px 20px 22px;
     }
 
     .schedule-row {
@@ -300,19 +412,27 @@ footer {
 <main class="page">
 
     <!-- HEADER -->
-    <header class="hero">
-        <div class="badge"></div>
 
-        <h1>2nd Term Exam Countdown</h1>
+    <header class="hero">
+
+        <div class="badge">
+            
+        </div>
+
+        <h1>
+            2ND TERM EXAM
+        </h1>
 
         <p class="subtitle">
             Theory • Viva &amp; OSPE
         </p>
+
     </header>
 
 
     <!-- COUNTDOWN -->
-    <section class="countdown-card">
+
+    <section class="card countdown-card">
 
         <p class="eyebrow">
             NEXT EXAM
@@ -322,9 +442,10 @@ footer {
             Loading...
         </h2>
 
-        <p id="nextDate" class="event-date"></p>
+        <p id="nextDate" class="event-date">
+        </p>
 
-        <div id="timer" class="timer">
+        <div class="timer">
 
             <div class="time-box">
                 <span id="days">00</span>
@@ -352,18 +473,21 @@ footer {
 
 
     <!-- THEORY EXAM -->
-    <section class="schedule-section">
 
-        <div class="section-heading">
+    <section class="card section">
+
+        <div class="section-title">
 
             <div>
+
                 <p class="eyebrow">
                     SCHEDULE
                 </p>
 
                 <h2>
-                    Theory Exam
+                    WRITTEN EXAM
                 </h2>
+
             </div>
 
             <span class="time-pill">
@@ -375,49 +499,59 @@ footer {
 
         <div class="schedule-list">
 
-            <article class="schedule-row">
-
-                <div class="date">
-                    <strong>06</strong>
-                    <span>SEP 2026</span>
-                </div>
-
-                <div>
-                    <h3>Microbiology</h3>
-                    <p>Theory Exam</p>
-                </div>
-
-            </article>
-
+            <!-- 8 SEPTEMBER -->
 
             <article class="schedule-row">
 
                 <div class="date">
+
                     <strong>08</strong>
-                    <span>SEP 2026</span>
+
+                    <span>
+                        SEP 2026
+                    </span>
+
                 </div>
 
                 <div>
-                    <h3>Pathology</h3>
-                    <p>Theory Exam</p>
+
+                    <h3>
+                        Pathology
+                    </h3>
+
+                    <p>
+                        Theory Exam
+                    </p>
+
                 </div>
 
             </article>
 
 
+            <!-- 10 SEPTEMBER -->
+
             <article class="schedule-row">
 
                 <div class="date">
+
                     <strong>10</strong>
-                    <span>SEP 2026</span>
+
+                    <span>
+                        SEP 2026
+                    </span>
+
                 </div>
 
                 <div>
+
                     <h3>
                         Community Medicine &amp; Public Health
                     </h3>
 
-                    <p>Theory Exam</p>
+                    <p>
+                        Theory Exam
+                    </p>
+
                 </div>
 
             </article>
@@ -427,19 +561,90 @@ footer {
     </section>
 
 
-    <!-- VIVA & OSPE -->
-    <section class="schedule-section">
+    <!-- FIND MY VIVA -->
 
-        <div class="section-heading">
+    <section class="card section find-viva">
+
+        <p class="eyebrow">
+            VIVA &amp; OSPE
+        </p>
+
+        <h2>
+            Find My Viva
+        </h2>
+
+        <p class="find-viva-description">
+            Tap your group to see your Viva &amp; OSPE schedule
+        </p>
+
+
+        <!-- GROUP BUTTONS -->
+
+        <div class="group-buttons">
+
+            <button class="group-btn" data-group="A">
+                A
+            </button>
+
+            <button class="group-btn" data-group="B">
+                B
+            </button>
+
+            <button class="group-btn" data-group="C">
+                C
+            </button>
+
+            <button class="group-btn" data-group="D">
+                D
+            </button>
+
+            <button class="group-btn" data-group="E">
+                E
+            </button>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div id="vivaResult" class="viva-result">
+
+            <div class="result-title">
+
+                <h3 id="groupTitle">
+                    Group A
+                </h3>
+
+                <p>
+                    Viva &amp; OSPE • 9:00 AM – 3:00 PM
+                </p>
+
+            </div>
+
+            <div id="vivaList">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FULL VIVA TABLE -->
+
+    <section class="card section">
+
+        <div class="section-title">
 
             <div>
+
                 <p class="eyebrow">
-                    PRACTICAL
+                    COMPLETE ROUTINE
                 </p>
 
                 <h2>
                     Viva &amp; OSPE
                 </h2>
+
             </div>
 
             <span class="time-pill">
@@ -448,15 +653,12 @@ footer {
 
         </div>
 
-
         <p class="venue">
             Venue: Respective Department
         </p>
 
 
         <div class="ospe-grid">
-
-            <!-- HEADER -->
 
             <div class="ospe-header">
 
@@ -477,86 +679,56 @@ footer {
             </div>
 
 
-            <!-- 12 SEPTEMBER -->
-
             <div class="ospe-row">
 
-                <span>
-                    12 Sep
-                </span>
+                <span>12 Sep</span>
 
                 <b>A</b>
-
                 <b>B</b>
-
                 <b>C</b>
 
             </div>
 
 
-            <!-- 13 SEPTEMBER -->
+            <div class="ospe-row">
+
+                <span>13 Sep</span>
+
+                <b>D</b>
+                <b>E</b>
+                <b>A</b>
+
+            </div>
+
 
             <div class="ospe-row">
 
-                <span>
-                    13 Sep
-                </span>
+                <span>14 Sep</span>
 
+                <b>B</b>
+                <b>C</b>
                 <b>D</b>
+
+            </div>
+
+
+            <div class="ospe-row">
+
+                <span>15 Sep</span>
 
                 <b>E</b>
-
                 <b>A</b>
-
-            </div>
-
-
-            <!-- 14 SEPTEMBER -->
-
-            <div class="ospe-row">
-
-                <span>
-                    14 Sep
-                </span>
-
-                <b>B</b>
-
-                <b>C</b>
-
-                <b>D</b>
-
-            </div>
-
-
-            <!-- 15 SEPTEMBER -->
-
-            <div class="ospe-row">
-
-                <span>
-                    15 Sep
-                </span>
-
-                <b>E</b>
-
-                <b>A</b>
-
                 <b>B</b>
 
             </div>
 
 
-            <!-- 16 SEPTEMBER -->
-
             <div class="ospe-row">
 
-                <span>
-                    16 Sep
-                </span>
+                <span>16 Sep</span>
 
                 <b>C</b>
-
                 <b>D</b>
-
                 <b>E</b>
 
             </div>
@@ -567,7 +739,7 @@ footer {
 
 
     <footer>
-        © 2026 SOUAD 76 
+        © 2026 SOUAD 76
     </footer>
 
 </main>
@@ -575,74 +747,104 @@ footer {
 
 <script>
 
-/* ==========================================
-   EXAM SCHEDULE
-   ========================================== */
+/* =====================================================
+   COUNTDOWN EVENTS
+   ===================================================== */
 
 const events = [
 
     {
-        date: "2026-09-06T10:00:00",
-        title: "Microbiology",
-        type: "Theory Exam",
-        end: "2026-09-06T13:00:00"
-    },
-
-    {
         date: "2026-09-08T10:00:00",
         title: "Pathology",
-        type: "Theory Exam",
-        end: "2026-09-08T13:00:00"
+        type: "Theory Exam"
     },
 
     {
         date: "2026-09-10T10:00:00",
         title: "Community Medicine & Public Health",
-        type: "Theory Exam",
-        end: "2026-09-10T13:00:00"
+        type: "Theory Exam"
     },
 
     {
         date: "2026-09-12T09:00:00",
-        title: "Viva & OSPE — Day A/B/C",
-        type: "Practical",
-        end: "2026-09-12T15:00:00"
+        title: "Viva & OSPE",
+        type: "Practical"
     },
 
     {
         date: "2026-09-13T09:00:00",
-        title: "Viva & OSPE — Day D/E/A",
-        type: "Practical",
-        end: "2026-09-13T15:00:00"
+        title: "Viva & OSPE",
+        type: "Practical"
     },
 
     {
         date: "2026-09-14T09:00:00",
-        title: "Viva & OSPE — Day B/C/D",
-        type: "Practical",
-        end: "2026-09-14T15:00:00"
+        title: "Viva & OSPE",
+        type: "Practical"
     },
 
     {
         date: "2026-09-15T09:00:00",
-        title: "Viva & OSPE — Day E/A/B",
-        type: "Practical",
-        end: "2026-09-15T15:00:00"
+        title: "Viva & OSPE",
+        type: "Practical"
     },
 
     {
         date: "2026-09-16T09:00:00",
-        title: "Viva & OSPE — Day C/D/E",
-        type: "Practical",
-        end: "2026-09-16T15:00:00"
+        title: "Viva & OSPE",
+        type: "Practical"
     }
 
 ];
 
 
-/* ==========================================
-   FORMAT DATE
-   ========================================== */
+/* =====================================================
+   VIVA GROUP ROUTINE
+
+   Each date contains:
+   Community Medicine
+   Pathology
+   Microbiology
+   ===================================================== */
+
+const vivaSchedule = {
+
+    A: [
+        ["12 Sep", "Community Medicine"],
+        ["13 Sep", "Microbiology"],
+        ["15 Sep", "Pathology"]
+    ],
+
+    B: [
+        ["12 Sep", "Pathology"],
+        ["14 Sep", "Community Medicine"],
+        ["15 Sep", "Microbiology"]
+    ],
+
+    C: [
+        ["12 Sep", "Microbiology"],
+        ["14 Sep", "Pathology"],
+        ["16 Sep", "Community Medicine"]
+    ],
+
+    D: [
+        ["13 Sep", "Community Medicine"],
+        ["14 Sep", "Microbiology"],
+        ["16 Sep", "Pathology"]
+    ],
+
+    E: [
+        ["13 Sep", "Pathology"],
+        ["15 Sep", "Community Medicine"],
+        ["16 Sep", "Microbiology"]
+    ]
+
+};
+
+
+/* =====================================================
+   DATE FORMAT
+   ===================================================== */
 
 function formatDate(date) {
 
@@ -659,9 +861,9 @@ function formatDate(date) {
 }
 
 
-/* ==========================================
+/* =====================================================
    COUNTDOWN
-   ========================================== */
+   ===================================================== */
 
 function updateCountdown() {
 
@@ -672,18 +874,18 @@ function updateCountdown() {
     );
 
 
-    /* ALL EVENTS COMPLETED */
+    /* ALL EXAMS FINISHED */
 
     if (!next) {
 
         document.getElementById("nextEvent").textContent =
-            "Exams completed";
+            "All exams completed";
 
         document.getElementById("nextDate").textContent =
-            "Well done, Batch C!";
+            "Congratulations, Batch C!";
 
-        document.getElementById("timer").innerHTML =
-            `
+        document.querySelector(".timer").innerHTML = `
+
             <div class="time-box"
                  style="grid-column:1/-1">
 
@@ -694,20 +896,21 @@ function updateCountdown() {
                 </small>
 
             </div>
-            `;
+
+        `;
 
         return;
     }
 
 
-    /* TARGET DATE */
+    const target =
+        new Date(next.date);
 
-    const target = new Date(next.date);
+    const gap =
+        target - now;
 
-    const gap = target - now;
 
-
-    /* EVENT INFORMATION */
+    /* EVENT */
 
     document.getElementById("nextEvent").textContent =
         `${next.title} — ${next.type}`;
@@ -725,7 +928,7 @@ function updateCountdown() {
         }`;
 
 
-    /* TIME CALCULATION */
+    /* TIME */
 
     const totalSeconds =
         Math.max(
@@ -761,14 +964,11 @@ function updateCountdown() {
     document.getElementById("days").textContent =
         String(days).padStart(2, "0");
 
-
     document.getElementById("hours").textContent =
         String(hours).padStart(2, "0");
 
-
     document.getElementById("minutes").textContent =
         String(minutes).padStart(2, "0");
-
 
     document.getElementById("seconds").textContent =
         String(seconds).padStart(2, "0");
@@ -776,9 +976,127 @@ function updateCountdown() {
 }
 
 
-/* ==========================================
-   START
-   ========================================== */
+/* =====================================================
+   SHOW GROUP VIVA
+   ===================================================== */
+
+function showGroup(group) {
+
+    const result =
+        document.getElementById("vivaResult");
+
+    const list =
+        document.getElementById("vivaList");
+
+    const title =
+        document.getElementById("groupTitle");
+
+
+    title.textContent =
+        `Group ${group}`;
+
+
+    list.innerHTML = "";
+
+
+    vivaSchedule[group].forEach(item => {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "viva-item";
+
+
+        div.innerHTML = `
+
+            <div class="viva-date">
+
+                <strong>
+                    ${item[0].split(" ")[0]}
+                </strong>
+
+                <span>
+                    SEP 2026
+                </span>
+
+            </div>
+
+            <div>
+
+                <div class="viva-subject">
+                    ${item[1]}
+                </div>
+
+                <div class="viva-time">
+                    9:00 AM – 3:00 PM
+                    • Respective Department
+                </div>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(div);
+
+    });
+
+
+    result.classList.add("show");
+
+
+    /* Highlight selected button */
+
+    document.querySelectorAll(".group-btn")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "selected",
+                button.dataset.group === group
+            );
+
+        });
+
+
+    /* Scroll result into view */
+
+    setTimeout(() => {
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+
+    }, 50);
+
+}
+
+
+/* =====================================================
+   GROUP BUTTONS
+   ===================================================== */
+
+document.querySelectorAll(".group-btn")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                showGroup(
+                    button.dataset.group
+                );
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   START COUNTDOWN
+   ===================================================== */
 
 updateCountdown();
 
